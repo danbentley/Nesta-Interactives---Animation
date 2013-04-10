@@ -9,7 +9,10 @@ $(document).ready(function() {
 	var characters = $('span[id^=figure-]');
 	var statusEl = $('div.status');
 
-	characters.draggable({ axis:"y" });
+	characters.draggable({ 
+		axis:"y",
+		containment:[300, 0, 0, 300]
+	});
 
 	function storeOriginalPositions() {
 		characters.each(function(index, character) {

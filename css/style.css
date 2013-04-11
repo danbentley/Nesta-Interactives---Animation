@@ -83,7 +83,7 @@ body {
 /* CONTROL BUTTONS */
 .buttons {
 	list-style: none;
-	margin:0;
+	margin:0 0 1.5em;
 	padding:0;
 }
 .buttons a {

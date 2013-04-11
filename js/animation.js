@@ -8,6 +8,10 @@ $(document).ready(function() {
 	var playbackFrameCount = 0;
 	var characters = $('span[id^=figure-]');
 	var statusEl = $('div.status');
+	var $recordButton = $('a.record');
+	var $playButton = $('a.play');
+	var $stopButton = $('a.stop');
+	var $resetButton = $('a.reset');
 
 	characters.draggable({ 
 		axis:"y",
@@ -33,13 +37,11 @@ $(document).ready(function() {
 	function stop() {
 		window.clearInterval(intervalId);
 		window.clearInterval(playbackIntervalId);
+		updateStatus();
 	}
 
 	function play() {
-		if (positions.length === 0) {
-			alert('Press record before play');
-			return;
-		}
+		playbackFrameCount = 0;
 		playbackIntervalId = window.setInterval(function() {
 			characters.each(function(index, character) {
 				var position = positions[index][playbackFrameCount];
@@ -62,25 +64,33 @@ $(document).ready(function() {
 		statusEl.html(status);
 	}
 
-	$('a.reset').on('click', function(e) {
+	$resetButton.on('click', function(e) {
+		if ($(this).hasClass('disabled')) return;
+		$playButton.addClass('disabled');
+		$resetButton.addClass('disabled');
 		reset();
 		updateStatus('');
 		e.preventDefault();
 	});
 
-	$('a.stop').on('click', function(e) {
+	$stopButton.on('stop').on('click', function(e) {
+		if ($(this).hasClass('disabled')) return;
 		stop();
 		updateStatus('<span class="stopped">Stopped</span>');
 		e.preventDefault();
 	});
 
-	$('a.play').on('click', function(e) {
+	$playButton.on('click', function(e) {
+		if ($(this).hasClass('disabled')) return;
 		stop();
 		play();
 		e.preventDefault();
 	});
 
-	$('a.record').on('click', function(e) {
+	$recordButton.on('click', function(e) {
+		if ($(this).hasClass('disabled')) return;
+		$playButton.removeClass('disabled');
+		$resetButton.removeClass('disabled');
 		record();
 		updateStatus('<span class="recording">Recording</span>');
 		e.preventDefault();

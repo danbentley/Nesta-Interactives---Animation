@@ -25,6 +25,7 @@ $(document).ready(function() {
 	}
 
 	function record() {
+		stop();
 		storeOriginalPositions();
 		intervalId = window.setInterval(function() {
 			characters.each(function(index, character) {
@@ -35,12 +36,14 @@ $(document).ready(function() {
 	}
 
 	function stop() {
+		characters.draggable('enable');
 		window.clearInterval(intervalId);
 		window.clearInterval(playbackIntervalId);
 		updateStatus();
 	}
 
 	function play() {
+		characters.draggable('disable');
 		playbackFrameCount = 0;
 		playbackIntervalId = window.setInterval(function() {
 			characters.each(function(index, character) {

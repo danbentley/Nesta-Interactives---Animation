@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 	characters.draggable({ 
 		axis:"y",
-		containment:[300, 0, 0, 300]
+		containment:[300, 1, 0, 300]
 	});
 
 	function storeOriginalPositions() {

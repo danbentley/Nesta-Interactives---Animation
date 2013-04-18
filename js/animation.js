@@ -7,6 +7,7 @@ $(document).ready(function() {
 	var frameCount = 0;
 	var playbackFrameCount = 0;
 	var recording = false;
+	var playing = false;
 	var characters = $('span[id^=figure-]');
 	var $status = $('div.status');
 	var $recordButton = $('a.record');
@@ -60,19 +61,27 @@ $(document).ready(function() {
 		stopRecording();
 		window.clearInterval(playbackIntervalId);
 		updateStatus();
+		playing = false;
+		$playButton.removeClass('disabled');
 	}
 
 	function play() {
 		characters.draggable('disable');
 		playbackFrameCount = 0;
+		var totalFrameCount = getTotalFrameCount();
 		playbackIntervalId = window.setInterval(function() {
 			characters.each(function(index, character) {
 				var position = positions[index][playbackFrameCount];
 				$(character).offset(position);  
 			});	
+			if (playbackFrameCount > totalFrameCount) {
+				stop();
+			}
 			playbackFrameCount++;
 		}, POLLING_INTERVAL);
 		updateStatus('<span class="playing">Playing</span>');
+		playing = true;
+		$playButton.addClass('disabled');
 	}
 
 	function reset() {
@@ -85,6 +94,19 @@ $(document).ready(function() {
 
 	function updateStatus(status) {
 		$status.html(status);
+	}
+
+	function getTotalFrameCount() {
+		var frameCount = 0;
+
+		characters.each(function(index, character) {
+			var frames = positions[index];
+			if (frames.length > frameCount) {
+				frameCount = frames.length;
+			}
+		});	
+
+		return frameCount;
 	}
 
 	$resetButton.on('click', function(e) {

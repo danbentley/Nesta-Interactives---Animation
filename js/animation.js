@@ -6,8 +6,9 @@ $(document).ready(function() {
 	var positions = [];
 	var frameCount = 0;
 	var playbackFrameCount = 0;
+	var recording = false;
 	var characters = $('span[id^=figure-]');
-	var statusEl = $('div.status');
+	var $status = $('div.status');
 	var $recordButton = $('a.record');
 	var $playButton = $('a.play');
 	var $stopButton = $('a.stop');
@@ -25,19 +26,38 @@ $(document).ready(function() {
 	}
 
 	function record() {
+
+		if (recording) {
+			return stopRecording();
+		}
+
 		stop();
 		storeOriginalPositions();
+		startRecording();
+	}
+
+	function stopRecording() {
+		window.clearInterval(intervalId);
+		updateStatus('');
+		recording = false;
+		$recordButton.html('<span>Record</span>');
+	}
+
+	function startRecording() {
 		intervalId = window.setInterval(function() {
 			characters.each(function(index, character) {
 				positions[index][frameCount] = $(character).offset();
 			});	
 			frameCount++;
 		}, POLLING_INTERVAL);
+		recording = true;
+		$recordButton.html('<span>Stop recording</span>');
+		updateStatus('<span class="recording">Recording</span>');
 	}
 
 	function stop() {
 		characters.draggable('enable');
-		window.clearInterval(intervalId);
+		stopRecording();
 		window.clearInterval(playbackIntervalId);
 		updateStatus();
 	}
@@ -64,7 +84,7 @@ $(document).ready(function() {
 	}
 
 	function updateStatus(status) {
-		statusEl.html(status);
+		$status.html(status);
 	}
 
 	$resetButton.on('click', function(e) {
@@ -95,7 +115,6 @@ $(document).ready(function() {
 		$playButton.removeClass('disabled');
 		$resetButton.removeClass('disabled');
 		record();
-		updateStatus('<span class="recording">Recording</span>');
 		e.preventDefault();
 	});
 });

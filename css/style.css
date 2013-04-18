@@ -166,21 +166,21 @@ body {
 .eye, .tooth { width:7px; height:7px; position:absolute; border-radius:3px; background:#fff; }
 .face, .head, .mouth, .body, .tache { position: absolute; overflow: hidden; }
 
-.blaxton { top:43px; background:#f2665e; left:51px; height:324px; width:73px; position:absolute; border-radius: 40px 40px 0 0; }
+.blaxton { top:111px; background:#f2665e; left:51px; height:324px; width:73px; position:absolute; border-radius: 40px 40px 0 0; }
 .blaxton .face { width:23px; height:17px; top:18px; left:25px; }
 .blaxton .eye { top: 0; }
 .blaxton .eye-l { left: 0; }
 .blaxton .eye-r { right: 0; }
 .blaxton .tache { left: 2px; bottom:-10px; width:19px; height:19px; border-radius: 10px; background:#666; }
 
-.eldric { top:43px; background:#fcb040; left:144px; height:324px; width:91px; position:absolute; border-radius: 46px 46px 0 0; }
+.eldric { top:210px; background:#fcb040; left:144px; height:324px; width:91px; position:absolute; border-radius: 46px 46px 0 0; }
 .eldric .face { width:41px; height:41px; top:30px; left:25px; }
 .eldric .sclera { position:absolute; width:41px; height:41px; top:-21px; left:0; background: #fff; border-radius:22px; }
 .eldric .iris { position:absolute; width:19px; height:19px; top:-10px; left:11px; background: #666; border-radius:10px; }
 .eldric .lips { position:absolute; left: 11px; bottom:0px; width:19px; height:19px; border-radius: 10px; background:#f2665e; }
 .eldric .mouth { position:absolute; left: 16px; bottom:5px; width:9px; height:9px; border-radius: 5px; background:#666; }
 
-.langworth { top:43px; background:#6ac071; left:254px; height:324px; width:79px; position:absolute; border-radius: 40px 40px 0 0; }
+.langworth { top:181px; background:#6ac071; left:254px; height:324px; width:79px; position:absolute; border-radius: 40px 40px 0 0; }
 .langworth .face { width:23px; height:19px; top:20px; left:28px; z-index:2; }
 .langworth .eye { top: 0; }
 .langworth .eye-l { left: 0; }
@@ -190,7 +190,7 @@ body {
 .langworth .tooth-l { left: 32px; }
 .langworth .tooth-r { right: 32px; }
 
-.oglesby { top:43px; background:#57cbf5; left:352px; height:324px; width:103px; position:absolute; border-radius: 55px 55px 0 0; }
+.oglesby { top:55px; background:#57cbf5; left:352px; height:324px; width:103px; position:absolute; border-radius: 55px 55px 0 0; }
 .oglesby .face { width:51px; height:26px; top:22px; left:26px; }
 .oglesby .eye { top: 0; }
 .oglesby .eye-l { left: 14px; }
@@ -202,7 +202,7 @@ body {
 .oglesby .upper-tooth { margin-left: 2px; margin-top: 1px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-bottom: 3px solid #666; }
 .oglesby .lower-tooth { margin-left: 2px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 3px solid #666; }
 
-.harriet { top:43px; left:474px; height:324px; width:78px; position:absolute; }
+.harriet { top:182px; left:474px; height:324px; width:78px; position:absolute; }
 .harriet .head { background: #f2665e; width: 78px; height: 76px; top:0; left:0; border-radius: 40px 40px 0 0; }
 .harriet .face { background: #fcb040; width: 78px; height: 75px; top:0; left:0; border-radius: 40px; overflow: hidden; }
 .harriet .hair { background: #f2665e; width: 50px; height: 50px; top:-24px; border-radius: 25px; position: absolute; }
@@ -215,7 +215,7 @@ body {
 .harriet .mouth span { position:absolute; background:#fff; width:50px; height:50px; bottom:4px; left:-4px; border-radius: 25px; }
 .harriet .body { background: #57cbf5; width: 76px; height: 249px; bottom:0; left:1px; border-radius: 40px 40px 0 0; }
 
-.rumford { top:43px; left:570px; height:324px; width:80px; position:absolute; }
+.rumford { top:128px; left:570px; height:324px; width:80px; position:absolute; }
 .rumford .head { background: #57cbf5; width: 80px; height: 80px; top:0; left:0; border-radius: 40px; overflow: hidden; }
 .rumford .body { background: #6ac071; width: 57px; height: 244px; bottom:0; left:11px; border-radius: 40px 40px 0 0; }
 

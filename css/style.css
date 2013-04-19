@@ -227,3 +227,29 @@ body {
 .rumford .eye-r { right: 24px; }
 .rumford .mouth { overflow: hidden; width:45px; height:15px; top:57px; left:16px; }
 .rumford .mouth span { position:absolute; background:#fff; width:46px; height:54px; bottom:1px; left:1px; border-radius: 21px; }
+
+
+/* CHARACTERS FOR BROWSERS WITH NO BORDER-RADIUS SUPPORt  */
+.oldie {
+	
+}
+
+
+.oldie .interactive > span * { display:none;  }
+.oldie .interactive > span { background: transparent url('../images/legacy-characters.png') no-repeat; }
+
+.oldie .interactive .blaxton { background-position:-10px -10px; }
+.oldie .interactive .eldric { background-position:-133px -10px; }
+.oldie .interactive .langworth { background-position:-274px -10px; }
+.oldie .interactive .oglesby { background-position:-403px -10px; }
+.oldie .interactive .harriet { background-position:-556px -10px; }
+.oldie .interactive .rumford { background-position:-684px -10px; }
+
+
+
+
+
+
+
+
+

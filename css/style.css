@@ -108,13 +108,13 @@ body {
 	background:#f4f0ed;
 }
 .buttons a.record {
-	background: #f17169 url('../images/controls.png') no-repeat 15px 0;
+	background: #f17169 url('../img/controls.png') no-repeat 15px 0;
 }
 .buttons a.play {
-	background: #6ac071 url('../images/controls.png') no-repeat 15px 50%;
+	background: #6ac071 url('../img/controls.png') no-repeat 15px 50%;
 }
 .buttons a.reset {
-	background: #57cbf5 url('../images/controls.png') no-repeat 15px 100%;
+	background: #57cbf5 url('../img/controls.png') no-repeat 15px 100%;
 }
 
 .buttons a.disabled {
@@ -157,8 +157,8 @@ body {
 	
 }
 
-.status .recording { background-image: url('../images/recording-indicator.gif'); }
-.status .playing { background-image: url('../images/playing-indicator.gif'); }
+.status .recording { background-image: url('../img/recording-indicator.gif'); }
+.status .playing { background-image: url('../img/playing-indicator.gif'); }
 
 
 /* CHARACTERS */
@@ -236,7 +236,7 @@ body {
 
 
 .oldie .interactive > span * { display:none;  }
-.oldie .interactive > span { background: transparent url('../images/legacy-characters.png') no-repeat; }
+.oldie .interactive > span { background: transparent url('../img/legacy-characters.png') no-repeat; }
 
 .oldie .interactive .blaxton { background-position:-10px -10px; }
 .oldie .interactive .eldric { background-position:-133px -10px; }

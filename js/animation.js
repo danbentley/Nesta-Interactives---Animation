@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 	function storeOriginalPositions() {
 		characters.each(function(index, character) {
-			positions[index] = [];
+			positions[index] = [$(character).offset()];
 		});	
 	}
 
@@ -90,6 +90,7 @@ $(document).ready(function() {
 		playbackFrameCount = 0;
 		frameCount = 0;
 		characters.offset({ top: 44 });
+		$playButton.addClass('disabled');
 	}
 
 	function updateStatus(status) {
@@ -101,12 +102,27 @@ $(document).ready(function() {
 
 		characters.each(function(index, character) {
 			var frames = positions[index];
+			if (!frames) {
+				frameCount = 0;
+				return;
+			}
+
 			if (frames.length > frameCount) {
 				frameCount = frames.length;
 			}
 		});	
 
 		return frameCount;
+	}
+
+	function animateCharactersToStartingPositions() {
+		storeOriginalPositions();
+		characters.offset({ top: 300 });
+		for (var i=0; i < characters.length; i++) {
+			var character = characters[i];
+			var startingPosition = positions[i][0];
+			$(character).animate({ top: startingPosition.top }, 1000, 'easeOutQuint');
+		};
 	}
 
 	$resetButton.on('click', function(e) {
@@ -139,4 +155,6 @@ $(document).ready(function() {
 		record();
 		e.preventDefault();
 	});
+
+	animateCharactersToStartingPositions();
 });

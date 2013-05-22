@@ -115,6 +115,16 @@ $(document).ready(function() {
 		return frameCount;
 	}
 
+	function animateCharactersToStartingPositions() {
+		storeOriginalPositions();
+		characters.offset({ top: 300 });
+		for (var i=0; i < characters.length; i++) {
+			var character = characters[i];
+			var startingPosition = positions[i][0];
+			$(character).animate({ top: startingPosition.top }, 1000, 'easeOutQuint');
+		};
+	}
+
 	$resetButton.on('click', function(e) {
 		if ($(this).hasClass('disabled')) return;
 		$playButton.addClass('disabled');
@@ -146,11 +156,5 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-	storeOriginalPositions();
-	characters.offset({ top: 300 });
-	for (var i=0; i < characters.length; i++) {
-		var character = characters[i];
-		var startingPosition = positions[i][0];
-		$(character).animate({ top: startingPosition.top }, 1000, 'easeOutQuint');
-	};
+	animateCharactersToStartingPositions();
 });
